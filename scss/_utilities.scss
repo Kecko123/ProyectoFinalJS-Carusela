@@ -1,0 +1,72 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+//----------------variables----------------
+
+//colors
+$principalBG: linear-gradient(90deg, rgba(88, 30, 17, 1) 0%, rgba(120, 53, 6, 1) 35%, rgba(120, 53, 6, 1) 65%, rgba(88, 30, 17, 1) 100%);
+$headerBG: #783506;
+$slytherinBG: linear-gradient(109.6deg, rgba(61, 131, 97, 1) 11.2%, rgba(28, 103, 88, 1) 91.1%);
+$hufflepuffBG: radial-gradient(circle 957px at 8.7% 50.5%, rgba(246, 191, 13, 1) 0%, rgba(249, 47, 47, 1) 90%);
+$gryffindorBG: radial-gradient(circle farthest-corner at 17.1% 22.8%, rgba(226, 24, 24, 1) 0%, rgba(160, 6, 6, 1) 90%);
+$ravenclawBG: linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);
+$commonBG: linear-gradient(to right, #a73737, #7a2828);
+$secondaryColor: #d75120;
+$footerColor: #241818;
+$black: rgb(22, 22, 22);
+$white: rgb(242, 242, 242);
+
+
+//borders
+$commonBorder: 1px black solid;
+$heavierBorder: 2px black solid;
+$borderRadiusSm: 1.5rem;
+$borderRadiusLg: 2rem;
+
+
+
+//----------------mixins----------------
+
+@mixin margins($top, $right, $bottom, $left) {
+    margin: $top $right $bottom $left;
+}
+
+@mixin paddings($top, $right, $bottom, $left) {
+    padding: $top $right $bottom $left;
+}
+
+
+//----------------maps----------------
+$fontSize: (
+    'XS': 0.8em,
+    'Sm': 1em,
+    'Md': 1.3em,
+    'L': 2.4em,
+    'Xl': 3em,
+    'header': 2em,
+    'headerMobile': 1.6em,
+);
+
+//----------------bucles----------------
+$fonts: (
+    'openSans': ('Open Sans', sans-serif),
+    'roboto': ('Roboto', sans-serif),
+    'daiBanna': ('Dai Banna SIL', sans-serif),
+    'rubik': ('Rubik', sans-serif)
+);
+
+@each $family, $font in $fonts {
+    .font-#{$family} {
+        font-family: $font;
+        color: $black;
+    }
+}
+
+.font-robotoBold {
+    @extend .font-roboto;
+    font-weight: bold;
+    color: $black;
+}

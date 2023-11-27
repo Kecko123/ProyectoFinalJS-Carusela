@@ -1,0 +1,15 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.wellcome{
+    background-color: #ba241c;
+    margin: 0;
+    color: white;
+}
+
+header {
+    background-color: #783506;
+}

@@ -1,0 +1,322 @@
+@import url("https://fonts.googleapis.com/css2?family=Dai+Banna+SIL:wght@600&family=Open+Sans&family=Roboto:wght@300&family=Rubik&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.font-openSans {
+  font-family: "Open Sans", sans-serif;
+  color: rgb(22, 22, 22);
+}
+
+.font-roboto, .font-robotoBold {
+  font-family: "Roboto", sans-serif;
+  color: rgb(22, 22, 22);
+}
+
+.font-daiBanna {
+  font-family: "Dai Banna SIL", sans-serif;
+  color: rgb(22, 22, 22);
+}
+
+.font-rubik {
+  font-family: "Rubik", sans-serif;
+  color: rgb(22, 22, 22);
+}
+
+.font-robotoBold {
+  font-weight: bold;
+  color: rgb(22, 22, 22);
+}
+
+.wellcome {
+  background-color: #582707;
+  color: #F5EAEA;
+  overflow: hidden;
+}
+.wellcome p {
+  white-space: nowrap;
+  width: fit-content;
+  overflow: hidden;
+  margin: 0;
+  font-size: 1.25em;
+  animation: marquee 15s infinite ease-out;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(-100vw);
+  }
+  to {
+    transform: translateX(100vw);
+  }
+}
+header {
+  background-color: #783506;
+  border-bottom: 1px rgba(0, 0, 0, 0.45) solid;
+}
+header .h1 {
+  font-size: 3em;
+}
+header .h1Logo {
+  width: 140px;
+}
+header .h1:hover {
+  transform: scale(110%);
+  transition: all 1s;
+}
+header .nav-link {
+  margin-left: 16px;
+}
+header .nav-link:hover {
+  transform: scale(110%);
+  transition: all 0.5s;
+}
+header .navbar-toggler {
+  border: none;
+  color: rgb(22, 22, 22);
+}
+header .navbar-toggler:focus {
+  box-shadow: none;
+}
+
+.carrito {
+  padding: 3px;
+  color: rgb(22, 22, 22) !important;
+  margin-left: 0.9rem;
+  background-color: rgb(242, 242, 242) !important;
+  border: 1px transparent solid;
+  border-radius: 90px;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  background: linear-gradient(90deg, rgb(88, 30, 17) 0%, rgb(120, 53, 6) 35%, rgb(120, 53, 6) 65%, rgb(88, 30, 17) 100%);
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.videoTienda {
+  width: 100%;
+  box-shadow: 0px 0px 27px 19px rgba(0, 0, 0, 0.48);
+  -webkit-box-shadow: 0px 0px 27px 19px rgba(0, 0, 0, 0.48);
+  -moz-box-shadow: 0px 0px 27px 19px rgba(0, 0, 0, 0.48);
+}
+
+footer {
+  background-color: #241818;
+}
+footer a {
+  color: #72f072 !important;
+}
+footer a:hover {
+  color: #72cf72;
+  transform: scale(110%);
+  transition: all 0.5s;
+}
+footer p {
+  color: rgb(242, 242, 242);
+}
+
+.card {
+  background: linear-gradient(to right, #a73737, #7a2828);
+  border: 1px transparent solid;
+  box-shadow: 10px 8px 6px -1px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 10px 8px 6px -1px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 10px 8px 6px -1px rgba(0, 0, 0, 0.5);
+}
+.cardMargins {
+  padding: 0 !important;
+}
+.cardRavenclaw {
+  background: linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);
+}
+.cardSlytherin {
+  background: linear-gradient(109.6deg, rgb(61, 131, 97) 11.2%, rgb(28, 103, 88) 91.1%);
+}
+.cardGryffindor {
+  background: radial-gradient(circle farthest-corner at 17.1% 22.8%, rgb(226, 24, 24) 0%, rgb(160, 6, 6) 90%);
+}
+.cardHufflepuff {
+  background: radial-gradient(circle 957px at 8.7% 50.5%, rgb(246, 191, 13) 0%, rgb(249, 47, 47) 90%);
+}
+.card-text {
+  color: rgb(242, 242, 242);
+}
+.card-title {
+  color: rgb(242, 242, 242);
+}
+
+.btn {
+  font-size: 0.8em !important;
+}
+.btnColor {
+  background: linear-gradient(to right, #e52d27 0%, #b31217 51%, #e52d27 100%);
+  text-align: center;
+  text-transform: uppercase;
+  background-size: 200% auto;
+  color: white !important;
+  width: 150px !important;
+}
+.btnColorRavenclaw {
+  background: linear-gradient(to right, #3a7bd5 0%, #3a6073 51%, #3a7bd5 100%);
+  text-align: center;
+  text-transform: uppercase;
+  background-size: 200% auto;
+  color: rgb(242, 242, 242) !important;
+  width: 150px !important;
+}
+.btnColorRavenclaw:hover {
+  transition: 0.5s;
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
+}
+.btnColorSlytherin {
+  background: linear-gradient(to right, #485563 0%, #29323c 51%, #485563 100%);
+  text-align: center;
+  text-transform: uppercase;
+  background-size: 200% auto;
+  color: rgb(242, 242, 242) !important;
+}
+.btnColorSlytherin:hover {
+  transition: 0.5s;
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
+}
+.btnColorGryffindor {
+  background: linear-gradient(to right, #D31027 0%, #EA384D 51%, #D31027 100%);
+  text-align: center;
+  text-transform: uppercase;
+  background-size: 200% auto;
+  color: rgb(242, 242, 242) !important;
+  width: 150px !important;
+}
+.btnColorGryffindor:hover {
+  transition: 0.5s;
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
+}
+.btnColorHufflepuff {
+  background: linear-gradient(to right, #F7971E 0%, #FFD200 51%, #F7971E 100%);
+  text-align: center;
+  text-transform: uppercase;
+  background-size: 200% auto;
+  color: rgb(242, 242, 242) !important;
+  width: 150px !important;
+}
+.btnColorHufflepuff:hover {
+  transition: 0.5s;
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
+}
+.btnColor:hover {
+  transition: 0.5s;
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
+}
+
+.filtroLabel {
+  font-size: 2.4em;
+  color: rgb(22, 22, 22);
+  margin-left: 1em;
+}
+.filtroInput {
+  padding: 0.5rem;
+  font-size: 1.3em;
+  border: 1px transparent solid;
+  border-radius: 15px;
+  margin-left: 1em;
+}
+.filtroInput::-webkit-inner-spin-button, .filtroInput::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.filtroSelect {
+  padding: 0.5rem;
+  font-size: 1.3em;
+  border: 1px transparent solid;
+  border-radius: 15px;
+  margin-left: 1em;
+}
+
+.cartAnchor {
+  color: rgb(22, 22, 22);
+  text-decoration: none;
+  border: 1px black solid;
+  border-radius: 1.5rem;
+  background-color: rgb(242, 242, 242);
+  padding: 0.5rem;
+}
+
+.visible {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+
+footer {
+  margin-top: auto;
+}
+
+@media (max-width: 1440px) {
+  .card {
+    margin-left: 2rem;
+  }
+}
+@media (max-width: 1024px) {
+  .card {
+    margin-left: 1.5rem;
+  }
+}
+@media (max-width: 768px) {
+  .card {
+    margin-left: 2rem;
+  }
+  .wellcome p {
+    font-size: 1em;
+  }
+  .h1 {
+    font-size: 2em !important;
+  }
+  .h1Logo {
+    width: 100px !important;
+  }
+}
+@media (max-width: 425px) {
+  .card {
+    margin-left: 3rem;
+  }
+}
+@media (max-width: 375px) {
+  .card {
+    margin-left: 2rem;
+  }
+  .wellcome p {
+    font-size: 0.8em;
+  }
+  .h1 {
+    font-size: 1.5em !important;
+  }
+  .h1Logo {
+    width: 80px !important;
+  }
+}
+@media (max-width: 320px) {
+  .card {
+    margin-left: 0;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */

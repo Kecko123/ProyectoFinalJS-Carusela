@@ -1,0 +1,63 @@
+@media (max-width: 1440px) {
+    .card {
+        margin-left: 2rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .card {
+        margin-left: 1.5rem
+    }
+}
+
+@media (max-width: 768px) {
+    .card {
+        margin-left: 2rem;
+    }
+
+    .wellcome {
+        p {
+            font-size: 1em;
+        }
+    }
+
+    .h1 {
+        &Logo {
+            width: 100px !important;
+        }
+
+        font-size: 2em !important;
+    }
+}
+
+@media (max-width: 425px) {
+    .card {
+        margin-left: 3rem;
+    }
+}
+
+@media (max-width: 375px) {
+    .card {
+        margin-left: 2rem;
+    }
+
+    .wellcome {
+        p {
+            font-size: 0.8em;
+        }
+    }
+
+    .h1 {
+        &Logo {
+            width: 80px !important;
+        }
+
+        font-size: 1.5em !important;
+    }
+}
+
+@media (max-width: 320px) {
+    .card {
+        margin-left: 0;
+    }
+}
