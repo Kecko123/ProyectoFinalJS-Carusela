@@ -72,67 +72,37 @@ const articulos = [
         descripcion: "Dos pendientes con el simbolo de las reliquias de la muerte"
     },
 ]
+
+const carrito = []
+
+const tocoCard = document.querySelector(".cardMargins")
+tocoCard.addEventListener("click", console.log("Hola"))
+
+window.addEventListener('DOMContentLoaded', function () {
+});
+
+// function agregarProducto(evt){
+//     if (evt.target.classList.contains(".btnAgregarAlCarrito")){
+//         console.log("Click")
+//     }
+// }
+
+// cards.addEventListener("click", agregarProducto)
+
+
+function datosArticulos(item) {
+    console.log(item)
+    console.log(item.querySelector("img".src))
+    console.log(item.querySelector("h5".textContent))
+    console.log(item.querySelector(".precioProducto".textContent))
+}
+
 let inputPrecioMaximo = document.querySelector('.filtroInput');
 let selectTipoProducto = document.querySelector('.filtroSelect');
 
-function crearArticulo() {
-    this.tipo = prompt('Ingrese el tipo del producto:');
-    this.nombre = prompt('Ingrese el nombre del producto:');
-    const precioString = prompt('Ingrese el precio del producto:');
-    this.precio = parseFloat(precioString);
-    this.descripcion = prompt('Ingrese la descripción del producto:');
-    const nuevoArticulo = {
-        tipo,
-        nombre,
-        precio,
-        descripcion,
-    };
-
-    if (isNaN(this.precio)) {
-        console.log('Ingresar un precio numerico porfavor');
-        return;
-    } else {
-        articulos.push(nuevoArticulo);
-    }
-
-}
-
-
-function verCatalogo() {
-    for (let i = 0; i < articulos.length; i += 1)
-        console.log(articulos[i])
-}
-
-function filtrarProductos() {
-    const item = prompt("Ingrese que tipo de articulo desea")
-
-    const articulosFiltrados = articulos.filter(articulo => articulo.tipo === item)
-
-    console.log('Los productos que coinciden con su busqueda son:', articulosFiltrados);
-}
-
-function filtrarPrecio() {
-    const precioMaximo = parseFloat(inputPrecioMaximo.value) || Infinity;;
-
-    if (isNaN(precioMaximo)) {
-        console.log('Por favor, ingrese un número válido.');
-        return;
-    }
-
-    const preciosFiltrados = articulos.filter(producto => producto.precio <= precioMaximo);
-
-    console.log('Productos con precio igual o inferior a $' + precioMaximo + ':', preciosFiltrados);
-}
-
-
-
-
-
-
-
 document.addEventListener('DOMContentLoaded', function () {
-    
-    
+
+
 
     // Escucha eventos de cambio en el select y el input
     selectTipoProducto.addEventListener('change', actualizarFiltro);
@@ -143,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function () {
         let precioMaximo = parseFloat(inputPrecioMaximo.value) || Infinity;
 
         let productos = document.querySelectorAll('.cardsUnfiltered');
-        
+
 
         productos.forEach(function (producto) {
             let precioProducto = parseFloat(producto.getAttribute('data-precio')) || 0;

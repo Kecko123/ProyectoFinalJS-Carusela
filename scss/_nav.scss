@@ -12,6 +12,12 @@
         animation: marquee 15s infinite ease-out;
     }
 }
+.btnHamburguesa{
+    background-color: rgba(201, 201, 201, 0.126);
+    padding: 6px 6px 12px 6px;
+    border: $commonBorder;
+    border-radius: 50%;
+}
 
 @keyframes marquee {
     from {
@@ -60,10 +66,11 @@ header {
 }
 
 .carrito {
-    padding: 3px;
+    padding: 6px!important;
     color: $black !important;
     margin-left: 0.9rem;
-    background-color: $white !important;
-    border: 1px transparent solid;
+    background-color: rgba(221, 235, 24, 0.682) !important;
+    border: $commonBorder!important;
     border-radius: 90px;
+    width: fit-content;
 }

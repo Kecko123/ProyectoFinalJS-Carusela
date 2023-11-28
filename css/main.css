@@ -44,6 +44,13 @@
   animation: marquee 15s infinite ease-out;
 }
 
+.btnHamburguesa {
+  background-color: rgba(201, 201, 201, 0.126);
+  padding: 6px 6px 12px 6px;
+  border: 1px black solid;
+  border-radius: 50%;
+}
+
 @keyframes marquee {
   from {
     transform: translateX(-100vw);
@@ -82,12 +89,13 @@ header .navbar-toggler:focus {
 }
 
 .carrito {
-  padding: 3px;
+  padding: 6px !important;
   color: rgb(22, 22, 22) !important;
   margin-left: 0.9rem;
-  background-color: rgb(242, 242, 242) !important;
-  border: 1px transparent solid;
+  background-color: rgba(221, 235, 24, 0.682) !important;
+  border: 1px black solid !important;
   border-radius: 90px;
+  width: fit-content;
 }
 
 html {
@@ -126,9 +134,23 @@ footer p {
 .card {
   background: linear-gradient(to right, #a73737, #7a2828);
   border: 1px transparent solid;
+  overflow: hidden;
   box-shadow: 10px 8px 6px -1px rgba(0, 0, 0, 0.5);
   -webkit-box-shadow: 10px 8px 6px -1px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 10px 8px 6px -1px rgba(0, 0, 0, 0.5);
+}
+.card-img-top-div {
+  overflow: hidden;
+}
+.card-img-top-zoom {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  object-fit: cover;
+  transition: 0.5s;
+}
+.card-img-top-zoom:hover {
+  transform: scale(1.1);
 }
 .cardMargins {
   padding: 0 !important;
@@ -247,15 +269,6 @@ footer p {
   border: 1px transparent solid;
   border-radius: 15px;
   margin-left: 1em;
-}
-
-.cartAnchor {
-  color: rgb(22, 22, 22);
-  text-decoration: none;
-  border: 1px black solid;
-  border-radius: 1.5rem;
-  background-color: rgb(242, 242, 242);
-  padding: 0.5rem;
 }
 
 .visible {
