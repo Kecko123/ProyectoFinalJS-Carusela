@@ -75,36 +75,32 @@ const articulos = [
 
 const carrito = []
 
-const tocoCard = document.querySelector(".cardMargins")
-tocoCard.addEventListener("click", console.log("Hola"))
-
-window.addEventListener('DOMContentLoaded', function () {
-});
-
-// function agregarProducto(evt){
-//     if (evt.target.classList.contains(".btnAgregarAlCarrito")){
-//         console.log("Click")
-//     }
-// }
-
-// cards.addEventListener("click", agregarProducto)
 
 
-function datosArticulos(item) {
-    console.log(item)
-    console.log(item.querySelector("img".src))
-    console.log(item.querySelector("h5".textContent))
-    console.log(item.querySelector(".precioProducto".textContent))
-}
+const cartas = document.querySelectorAll(".card")
+
+for (const carta of cartas) {
+    carta.addEventListener('click', (evt)=> {
+        agregarProducto(evt)
+    });
+  }
+function agregarProducto(evt) {
+    evt.preventDefault();
+    if (evt.target.classList.contains("btnAgregarAlCarrito")) {
+    const productoNombre = document.querySelector("body > main > div > div > div:nth-child(1) > div > div > h5");
+    const productoPrecio = document.querySelector("body > main > div > div > div:nth-child(1) > div > div > p.text-center.card-text.fs-5.precioProducto")
+    const productoImagen = document.querySelector("body > main > div > div > div:nth-child(1) > div > img")
+    console.log(productoNombre.textContent);
+    console.log(productoPrecio.textContent);
+    console.log(productoImagen.src);
+    }
+  }
+
 
 let inputPrecioMaximo = document.querySelector('.filtroInput');
 let selectTipoProducto = document.querySelector('.filtroSelect');
 
 document.addEventListener('DOMContentLoaded', function () {
-
-
-
-    // Escucha eventos de cambio en el select y el input
     selectTipoProducto.addEventListener('change', actualizarFiltro);
     inputPrecioMaximo.addEventListener('input', actualizarFiltro);
 
@@ -118,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function () {
         productos.forEach(function (producto) {
             let precioProducto = parseFloat(producto.getAttribute('data-precio')) || 0;
 
-            // Aplica el filtro de tipo y precio
+           
             if ((tipoSeleccionado === 'Todos' || producto.classList.contains(tipoSeleccionado)) &&
                 precioProducto <= precioMaximo) {
                 producto.classList.add('visible');
@@ -139,8 +135,3 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-// crearArticulo();
-
-// verCatalogo()
-// console.log(filtrarTazas)
-// console.log(filtrarPrendas)
