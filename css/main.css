@@ -30,9 +30,110 @@
   color: rgb(22, 22, 22);
 }
 
+.fontSizeVariable {
+  font-size: calc(1.275rem + 0.3vw) !important;
+}
+
+/*   Animaciones!   */
+.tracking-in-contract {
+  -webkit-animation: tracking-in-contract 1.4s cubic-bezier(0.215, 0.61, 0.355, 1) both;
+  animation: tracking-in-contract 1.4s cubic-bezier(0.215, 0.61, 0.355, 1) both;
+}
+
+@-webkit-keyframes tracking-in-contract {
+  0% {
+    letter-spacing: 1em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    letter-spacing: normal;
+    opacity: 1;
+  }
+}
+@keyframes tracking-in-contract {
+  0% {
+    letter-spacing: 1em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    letter-spacing: normal;
+    opacity: 1;
+  }
+}
+.focus-in-expand {
+  -webkit-animation: focus-in-expand 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 2s both;
+  animation: focus-in-expand 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 2s both;
+}
+
+@-webkit-keyframes focus-in-expand {
+  0% {
+    letter-spacing: -0.5em;
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+@keyframes focus-in-expand {
+  0% {
+    letter-spacing: -0.5em;
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+.pulsate-fwd {
+  -webkit-animation: pulsate-fwd 2.5s ease-in-out infinite both;
+  animation: pulsate-fwd 2.5s ease-in-out infinite both;
+}
+
+@-webkit-keyframes pulsate-fwd {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@keyframes pulsate-fwd {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
 .wellcome {
   background-color: #582707;
-  color: #F5EAEA;
+  font-family: "Roboto", sans-serif;
+  color: #F5EAEA !important;
   overflow: hidden;
 }
 .wellcome p {
@@ -63,18 +164,9 @@ header {
   background-color: #783506;
   border-bottom: 1px rgba(0, 0, 0, 0.45) solid;
 }
-header .h1 {
-  font-size: 3em;
-}
-header .h1Logo {
-  width: 140px;
-}
-header .h1:hover {
-  transform: scale(110%);
-  transition: all 1s;
-}
 header .nav-link {
   margin-left: 16px;
+  font-size: 1.3em;
 }
 header .nav-link:hover {
   transform: scale(110%);
@@ -88,12 +180,22 @@ header .navbar-toggler:focus {
   box-shadow: none;
 }
 
+.h1 {
+  font-size: 2em;
+}
+.h1Logo {
+  width: 120px;
+}
+.h1:hover {
+  transform: scale(110%);
+  transition: all 1s;
+}
+
 .carrito {
-  padding: 6px !important;
-  color: rgb(22, 22, 22) !important;
+  padding: 10px !important;
+  color: rgb(242, 242, 242) !important;
   margin-left: 0.9rem;
-  background-color: rgba(221, 235, 24, 0.682) !important;
-  border: 1px black solid !important;
+  background-color: #2D1402 !important;
   border-radius: 90px;
   width: fit-content;
 }
@@ -246,6 +348,27 @@ footer p {
   color: #fff;
   text-decoration: none;
 }
+.btnToProductos {
+  font-size: 0.8em !important;
+  background-color: #5c056b !important;
+  color: rgb(242, 242, 242) !important;
+  text-decoration: none;
+  display: inline-block;
+  --bs-btn-line-height: 1.5;
+  line-height: var(--bs-btn-line-height);
+  --bs-btn-padding-x: 0.75rem;
+  --bs-btn-padding-y: 0.375rem;
+  padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x);
+  border-radius: 1.5rem;
+}
+.btnToProductos:hover {
+  background-color: #460551 !important;
+  transition: background-color 0.5s;
+}
+.btnToProductos:hover::after {
+  background-color: #5c056b !important;
+  transition: background-color 0.5s;
+}
 
 .filtroLabel {
   font-size: 2.4em;
@@ -271,6 +394,18 @@ footer p {
   margin-left: 1em;
 }
 
+.tableHead {
+  font-size: 1.3em !important;
+}
+
+.borrarProducto {
+  text-decoration: none;
+}
+
+.borderSimple {
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
 .visible {
   display: block;
 }
@@ -292,6 +427,12 @@ footer {
   .card {
     margin-left: 1.5rem;
   }
+  .h1 {
+    font-size: 1.6em;
+  }
+  .h1Logo {
+    width: 100px;
+  }
 }
 @media (max-width: 768px) {
   .card {
@@ -310,6 +451,12 @@ footer {
 @media (max-width: 425px) {
   .card {
     margin-left: 3rem;
+  }
+  .tableImg {
+    width: 80px;
+  }
+  .tableText {
+    font-size: 1em !important;
   }
 }
 @media (max-width: 375px) {

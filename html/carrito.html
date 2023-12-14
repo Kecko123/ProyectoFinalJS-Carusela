@@ -6,9 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tienda Potter</title>
     <link rel="shortcut icon" href="../media/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/bttn.min.css">
     <link rel="stylesheet" href="../css/main.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js" defer></script>
     <script src="../js/main.js" defer></script>
 </head>
 
@@ -16,19 +19,20 @@
 <body>
     <!-- HEADER -->
     <div class="wellcome">
-        <p class="text-center font-roboto">Bienvenido a la Tienda Potter!</p>
+        <p class="text-center">Bienvenido a la Tienda Potter!</p>
     </div>
     <header>
-        <nav class="navbar navbar-expand-lg container sticky-top">
+        <nav class="navbar navbar-expand-lg container">
 
             <a class="navbar-brand font-roboto h1" href="../index.html"><img class="h1Logo" src="../media/logo.webp"
                     alt="Logo">Tienda Potter!</a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="btnHamburguesa"><svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="currentColor"
-                        class="bi bi-list" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+                <span class="btnHamburguesa"><svg xmlns="http://www.w3.org/2000/svg" width="34" height="34"
+                        fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
                     </svg></span>
             </button>
 
@@ -38,34 +42,41 @@
                     <a class="nav-link fs-4 font-rubik" href="#">Ubicacion</a>
                     <a class="nav-link fs-4 font-rubik" href="#">Contacto</a>
                     <a class="nav-link fs-4 font-rubik" href="./productos.html">Productos</a>
-                    <a class="nav-link fs-4 font-rubik carrito" href="./carrito.html">Ir al carrito<svg
-                            xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor"
-                            class="bi bi-cart " viewBox="0 0 16 16">
-                            <path
-                                d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
-                        </svg></a>
+                    <a class="nav-link fs-5 font-rubik carrito" href="./carrito.html">Ir al carrito <svg
+                        xmlns="http://www.w3.org/2000/svg" width="28" height="36" fill="currentColor"
+                        class="bi bi-cart " viewBox="0 0 18 18">
+                        <path
+                            d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                    </svg></a>
                 </div>
             </div>
         </nav>
     </header>
 
     <!-- MAIN -->
-    <main>
-        <h2 class="text-center font-robotoBold mt-5">Articulos Del Carrito: </h2>
+    <main class="mb-5">
+        <h2 class="text-center font-robotoBold mt-5 mb-5">Articulos Del Carrito: </h2>
         <div class="container carritoDeCompras">
-            <table class="table" id="tablaCarrito">
+            <table class="table align-middle mb-2" id="tablaCarrito">
                 <thead>
-                  <tr>
-                    <th scope="col">Cantidad de productos</th>
-                    <th scope="col">Imagen del producto</th>
-                    <th scope="col">Nombre del producto</th>
-                    <th scope="col">Precio del producto</th>
-                    <th scope="col">Eliminar Producto</th>
-                  </tr>
+                    <tr>
+                        <th class="borderSimple font-robotoBold text-center tableHead" scope="col">Imagen del producto</th>
+                        <th class="borderSimple font-robotoBold text-center tableHead" scope="col">Nombre del producto</th>
+                        <th class="borderSimple font-robotoBold text-center tableHead" scope="col">Precio del producto</th>
+                        <th class="borderSimple font-robotoBold text-center tableHead" scope="col">Eliminar Producto</th>
+                    </tr>
                 </thead>
                 <tbody></tbody>
-                
-              </table>
+
+            </table>
+
+            <div>
+
+                <button class="bttn-fill bttn-md bttn-danger fs-5 font-roboto" id="vaciar-carrito">Vaciar
+                    Carrito</button>
+                <button class="bttn-fill bttn-md bttn-success fs-5 font-roboto">Completar Compra</button>
+            </div>
+
         </div>
     </main>
 

@@ -1,108 +1,71 @@
-const articulos = [
-    {
-        tipo: "Taza",
-        nombre: "Taza De Gryffindor",
-        precio: 3000,
-        descripcion: "Taza de ceramica de la casa de Harry Potter Gryffindor con capacidad de 250Ml"
-    },
-    {
-        tipo: "Taza",
-        nombre: "Taza De Slytherin",
-        precio: 3000,
-        descripcion: "Taza de ceramica de la casa de Harry Potter Slytherin con capacidad de 250Ml"
-    },
-    {
-        tipo: "Taza",
-        nombre: "Taza De Hufflepuff",
-        precio: 3000,
-        descripcion: "Taza de ceramica de la casa de Harry Potter Hufflepuff con capacidad de 250Ml"
-    },
-    {
-        tipo: "Taza",
-        nombre: "Taza De Ravenclaw",
-        precio: 3000,
-        descripcion: "Taza de ceramica de la casa de Harry Potter Ravenclaw con capacidad de 250Ml"
-    },
-    {
-        tipo: "Prenda",
-        nombre: "Remera de Gryffindor",
-        precio: 7000,
-        descripcion: "Remera hecha 100% de algodon con el logo de Gryffindor",
-    },
-    {
-        tipo: "Prenda",
-        nombre: "Remera de Slytherin",
-        precio: 7000,
-        descripcion: "Remera hecha 100% de algodon con el logo de Slytherin",
-    },
-    {
-        tipo: "Prenda",
-        nombre: "Remera de Hufflepuff",
-        precio: 7000,
-        descripcion: "Remera hecha 100% de algodon con el logo de Hufflepuff",
-    },
-    {
-        tipo: "Prenda",
-        nombre: "Remera de Ravenclaw",
-        precio: 7000,
-        descripcion: "Remera hecha 100% de algodon con el logo de Ravenclaw",
-    },
-    {
-        tipo: "Decoracion",
-        nombre: "Snitch Dorada",
-        precio: 2300,
-        descripcion: "Una snitch dorada de harry potter de 10cm de longitud, perfecta para decoración"
-    },
-    {
-        tipo: "Varita",
-        nombre: "Varita de Saúco",
-        precio: 6500,
-        descripcion: "Varita de sauco, tambien llamada la varita mas poderosa del mundo, perteneció a Dumbledor, y es una de las 3 reliquias de la muerte"
-    },
-    {
-        tipo: "Accesorio",
-        nombre: "Colgante de las reliquias de la muerte",
-        precio: 2500,
-        descripcion: "Un collar con el simbolo de las reliquias de la muerte en él"
-    },
-    {
-        tipo: "Accesorio",
-        nombre: "Pendientes de las reliquias de la muerte",
-        precio: 1500,
-        descripcion: "Dos pendientes con el simbolo de las reliquias de la muerte"
-    },
-]
+const carritoTabla = document.querySelector("#tablaCarrito tbody")
+const vaciarCarrito = document.querySelector("#vaciar-carrito")
+const carritoEntero = document.querySelector(".carritoDeCompras")
+let carrito = []
 
-const carrito = []
+function saveStorage() {
+    localStorage.setItem('cart', JSON.stringify(carrito))
+}
 
+function displayCarritoHTML() {
+    borrarViejos()
+    carrito.forEach(producto => {
+        const fila = document.createElement('tr')
+        fila.innerHTML = `
+        <td class="text-center borderSimple" ><img src="${producto.imagen}" class=" tableImg" width="100" /></td>
+        <td class="text-center fontSizeVariable py-5 borderSimple tableText" > ${producto.nombre}</td>
+        <td class="text-center fontSizeVariable py-5 borderSimple tableText" > ${producto.precio}</td>
+        <td class="borderSimple text-center py-5">
+            <a href="#" class="borrarProducto fs-3 tableText" data-id="${producto.id}">🗑</a>
+        </td>
+        `
+        if (carritoTabla){
+            carritoTabla.appendChild(fila)
+        }else{
 
+        }        
+    })
+    saveStorage()
+}
 
-const cartas = document.querySelectorAll(".card")
-
-for (const carta of cartas) {
-    carta.addEventListener('click', (evt)=> {
-        agregarProducto(evt)
-    });
-  }
-function agregarProducto(evt) {
+function eliminarProducto(evt) {
     evt.preventDefault();
-    if (evt.target.classList.contains("btnAgregarAlCarrito")) {
-    const productoNombre = document.querySelector("body > main > div > div > div:nth-child(1) > div > div > h5");
-    const productoPrecio = document.querySelector("body > main > div > div > div:nth-child(1) > div > div > p.text-center.card-text.fs-5.precioProducto")
-    const productoImagen = document.querySelector("body > main > div > div > div:nth-child(1) > div > img")
-    console.log(productoNombre.textContent);
-    console.log(productoPrecio.textContent);
-    console.log(productoImagen.src);
+    if (evt.target.classList.contains('borrarProducto')) {
+        const producto = evt.target.parentElement.parentElement
+        const productoId = producto.querySelector("a").getAttribute("data-id")
+        carrito = carrito.filter(producto => producto.id !== productoId)
+        displayCarritoHTML()
     }
-  }
+}
 
+function limpiarCarrito() {
+    while (carritoTabla.firstChild) {
+        carritoTabla.removeChild(carritoTabla.firstChild)
+    }
+    carrito = []
+    saveStorage()
+}
+
+function borrarViejos() {
+    if(carritoTabla){
+        while (carritoTabla.firstChild) {
+            carritoTabla.removeChild(carritoTabla.firstChild)
+        }
+    } else{
+
+    }
+}
 
 let inputPrecioMaximo = document.querySelector('.filtroInput');
 let selectTipoProducto = document.querySelector('.filtroSelect');
-
 document.addEventListener('DOMContentLoaded', function () {
-    selectTipoProducto.addEventListener('change', actualizarFiltro);
-    inputPrecioMaximo.addEventListener('input', actualizarFiltro);
+
+    try {
+        selectTipoProducto.addEventListener('change', actualizarFiltro);
+        inputPrecioMaximo.addEventListener('input', actualizarFiltro);
+    } catch (error) {
+
+    }
 
     function actualizarFiltro() {
         let tipoSeleccionado = selectTipoProducto.value;
@@ -114,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function () {
         productos.forEach(function (producto) {
             let precioProducto = parseFloat(producto.getAttribute('data-precio')) || 0;
 
-           
+
             if ((tipoSeleccionado === 'Todos' || producto.classList.contains(tipoSeleccionado)) &&
                 precioProducto <= precioMaximo) {
                 producto.classList.add('visible');
@@ -125,6 +88,60 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }
+
+    const cartas = document.querySelectorAll(".cardsUnfiltered");
+
+    for (const carta of cartas) {
+        carta.addEventListener('click', agregarProducto);
+    }
+
+    function agregarProducto(evt) {
+        const boton = evt.target;
+        if (boton.tagName === 'A' && boton.classList.contains('btnAgregarAlCarrito')) {
+            const nombre = boton.getAttribute('data-nombre');
+            const precio = boton.getAttribute('data-precio');
+            const imagen = boton.getAttribute('data-imagen');
+            const id = boton.getAttribute("data-id")
+            const producto = {
+                nombre: nombre,
+                precio: precio,
+                imagen: imagen,
+                id: id
+            };
+
+            carrito.push(producto);
+            localStorage.setItem('cart', JSON.stringify(carrito));
+            Toastify({
+                text: `"Añadiste ${producto.nombre} al carrito!"`,
+                duration: 2000,
+                className: "info",
+                style: {
+                    background: "linear-gradient(to right, #ffd700, #ffff00)",
+                    color: "black"
+                }
+            }).showToast();
+
+
+            displayCarritoHTML()
+            // console.log("Producto añadido al carrito:", producto);
+        }
+    }
+    if(vaciarCarrito){
+        vaciarCarrito.addEventListener("click", limpiarCarrito)
+    }else{
+
+    }
+    if(carritoEntero){
+        carritoEntero.addEventListener("click", eliminarProducto)
+    }else{
+
+    }
+    
+    
+    carrito = JSON.parse(localStorage.getItem('cart')) || [];
+
+    displayCarritoHTML()
+
 });
 
 
