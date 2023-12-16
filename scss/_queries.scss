@@ -152,8 +152,19 @@
     }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 345px) {
     .card {
-        margin-left: 0;
+        margin-left: 8px!important;
+    }
+    .filtro {
+        flex-direction: column;
+        &Label{
+            margin-left: 4rem;
+            margin-bottom: 1rem;
+        }
+        &Input{
+            margin-left: 2rem;
+            margin-bottom: 2rem;
+        }
     }
 }
