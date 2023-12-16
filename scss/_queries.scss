@@ -9,6 +9,7 @@
     .card {
         margin-left: 1.5rem
     }
+
     .h1 {
         font-size: map-get($map: $fontSize, $key: headerMobile);
 
@@ -36,21 +37,68 @@
 
         font-size: 2em !important;
     }
+
+    .table {
+        &Img {
+            width: 80px;
+        }
+
+        &Text {
+            font-size: 1.2em !important;
+        }
+
+        &Head {
+            font-size: 1.2em !important;
+        }
+
+        &ButtonFont {
+            font-size: 0.9em !important;
+        }
+
+        &Price {
+            font-size: 0.9em;
+        }
+    }
 }
 
 @media (max-width: 425px) {
     .card {
         margin-left: 3rem;
     }
-    .table{
-        &Img{
+
+    .table {
+        &Img {
             width: 80px;
         }
-        &Text{
-            font-size: 1em!important;
+
+        &Text {
+            font-size: 1em !important;
+        }
+
+        &Head {
+            font-size: 1em !important;
+        }
+
+        &ButtonFont {
+            font-size: 0.8em !important;
+        }
+
+        &Price {
+            font-size: 0.8em;
         }
     }
-    
+
+    .filtro {
+        flex-direction: column;
+        &Label{
+            margin-left: 4rem;
+            margin-bottom: 1rem;
+        }
+        &Input{
+            margin-left: 4rem;
+            margin-bottom: 2rem;
+        }
+    }
 }
 
 @media (max-width: 375px) {
@@ -70,6 +118,37 @@
         }
 
         font-size: 1.5em !important;
+    }
+
+    .table {
+        &Img {
+            width: 80px;
+        }
+
+        &Text {
+            font-size: 0.75em !important;
+        }
+
+        &Head {
+            font-size: 0.8em !important;
+        }
+
+        &Buttons {
+            align-items: center;
+            flex-direction: column;
+        }
+
+        &ButtonFont {
+            margin: 0.4rem 0 0 0;
+            font-size: 1em !important;
+        }
+
+        &Price {
+            margin: 0.4rem 0 0 0;
+            font-size: 1em;
+        }
+
+        margin-bottom: 0;
     }
 }
 

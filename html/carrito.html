@@ -7,11 +7,12 @@
     <title>Tienda Potter</title>
     <link rel="shortcut icon" href="../media/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../css/bttn.min.css">
-    <link rel="stylesheet" href="../css/main.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="../css/main.css">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
     <script src="../js/main.js" defer></script>
 </head>
 
@@ -29,25 +30,25 @@
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="btnHamburguesa"><svg xmlns="http://www.w3.org/2000/svg" width="34" height="34"
-                        fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd"
-                            d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
-                    </svg></span>
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="36" height="50" viewBox="0 0 50 60">
+                        <path
+                            d="M 0 9 L 0 11 L 50 11 L 50 9 Z M 0 24 L 0 26 L 50 26 L 50 24 Z M 0 39 L 0 41 L 50 41 L 50 39 Z">
+                        </path>
+                    </svg>
+                </span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav ms-auto">
                     <a class="nav-link fs-4 font-rubik" aria-current="page" href="../index.html">Inicio</a>
-                    <a class="nav-link fs-4 font-rubik" href="#">Ubicacion</a>
-                    <a class="nav-link fs-4 font-rubik" href="#">Contacto</a>
                     <a class="nav-link fs-4 font-rubik" href="./productos.html">Productos</a>
-                    <a class="nav-link fs-5 font-rubik carrito" href="./carrito.html">Ir al carrito <svg
-                        xmlns="http://www.w3.org/2000/svg" width="28" height="36" fill="currentColor"
-                        class="bi bi-cart " viewBox="0 0 18 18">
-                        <path
-                            d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
-                    </svg></a>
+                    <a class="nav-link fs-5 font-rubik carrito" href="./carrito.html">Carrito <svg
+                            xmlns="http://www.w3.org/2000/svg" width="28" height="36" fill="currentColor"
+                            class="bi bi-cart " viewBox="0 0 18 18">
+                            <path
+                                d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                        </svg></a>
                 </div>
             </div>
         </nav>
@@ -60,21 +61,29 @@
             <table class="table align-middle mb-2" id="tablaCarrito">
                 <thead>
                     <tr>
-                        <th class="borderSimple font-robotoBold text-center tableHead" scope="col">Imagen del producto</th>
-                        <th class="borderSimple font-robotoBold text-center tableHead" scope="col">Nombre del producto</th>
-                        <th class="borderSimple font-robotoBold text-center tableHead" scope="col">Precio del producto</th>
-                        <th class="borderSimple font-robotoBold text-center tableHead" scope="col">Eliminar Producto</th>
+                        <th class="borderSimple font-robotoBold text-center tableHead" scope="col">Imagen del producto
+                        </th>
+                        <th class="borderSimple font-robotoBold text-center tableHead" scope="col">Nombre del producto
+                        </th>
+                        <th class="borderSimple font-robotoBold text-center tableHead" scope="col">Precio del producto
+                        </th>
+                        <th class="borderSimple font-robotoBold text-center tableHead" scope="col">Eliminar Producto
+                        </th>
                     </tr>
                 </thead>
                 <tbody></tbody>
 
             </table>
 
-            <div>
+            <div class="d-flex justify-content-center tableButtons">
 
-                <button class="bttn-fill bttn-md bttn-danger fs-5 font-roboto" id="vaciar-carrito">Vaciar
+                <p class="tablePrice p-2 font-openSans" id="precioTotal"></p>
+
+                <button class="bttn-fill bttn-md bttn-danger me-2 font-roboto tableButtonFont"
+                    id="vaciar-carrito">Vaciar
                     Carrito</button>
-                <button class="bttn-fill bttn-md bttn-success fs-5 font-roboto">Completar Compra</button>
+                <button class="bttn-fill bttn-md bttn-success font-roboto tableButtonFont"
+                    id="completar-compra">Completar Compra</button>
             </div>
 
         </div>
@@ -84,7 +93,7 @@
     <footer class="py-3">
         <ul class="nav justify-content-center border-bottom pb-3 mb-3">
             <li class="nav-item"><a href="#" class="nav-link px-2 ">Facebook</a></li>
-            <li class="nav-item"><a href="#" target="_blank" class="nav-link px-2 ">Whatsapp</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 ">Whatsapp</a></li>
             <li class="nav-item"><a href="#" class="nav-link px-2 ">Instagram</a></li>
         </ul>
         <p class="text-center">Esta pagina fue creada con motivos estudiantiles y sin fines de lucro</p>

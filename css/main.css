@@ -205,7 +205,7 @@ html {
 }
 
 body {
-  background: linear-gradient(90deg, rgb(88, 30, 17) 0%, rgb(120, 53, 6) 35%, rgb(120, 53, 6) 65%, rgb(88, 30, 17) 100%);
+  background: linear-gradient(90deg, rgb(120, 53, 6) 0%, rgb(148, 74, 20) 50%, rgb(120, 53, 6) 100%);
   display: flex;
   flex-direction: column;
   min-height: 100%;
@@ -216,6 +216,10 @@ body {
   box-shadow: 0px 0px 27px 19px rgba(0, 0, 0, 0.48);
   -webkit-box-shadow: 0px 0px 27px 19px rgba(0, 0, 0, 0.48);
   -moz-box-shadow: 0px 0px 27px 19px rgba(0, 0, 0, 0.48);
+}
+
+.listaDatos {
+  list-style-image: url(../media/icons8-harry-potter.svg);
 }
 
 footer {
@@ -249,7 +253,7 @@ footer p {
   height: 100%;
   overflow: hidden;
   object-fit: cover;
-  transition: 0.5s;
+  transition: 0.4s;
 }
 .card-img-top-zoom:hover {
   transform: scale(1.1);
@@ -371,7 +375,7 @@ footer p {
 }
 
 .filtroLabel {
-  font-size: 2.4em;
+  font-size: 1.8em;
   color: rgb(22, 22, 22);
   margin-left: 1em;
 }
@@ -395,7 +399,21 @@ footer p {
 }
 
 .tableHead {
-  font-size: 1.3em !important;
+  font-size: 1.3em;
+}
+.tableButtons {
+  align-items: baseline;
+}
+.tableButtonFont {
+  font-size: 1.25rem;
+}
+.tablePrice {
+  font-size: 1.3em;
+  color: rgb(22, 22, 22);
+  background-color: #fff;
+  margin-right: auto;
+  width: fit-content;
+  border-radius: 1.5rem;
 }
 
 .borrarProducto {
@@ -447,6 +465,21 @@ footer {
   .h1Logo {
     width: 100px !important;
   }
+  .tableImg {
+    width: 80px;
+  }
+  .tableText {
+    font-size: 1.2em !important;
+  }
+  .tableHead {
+    font-size: 1.2em !important;
+  }
+  .tableButtonFont {
+    font-size: 0.9em !important;
+  }
+  .tablePrice {
+    font-size: 0.9em;
+  }
 }
 @media (max-width: 425px) {
   .card {
@@ -457,6 +490,26 @@ footer {
   }
   .tableText {
     font-size: 1em !important;
+  }
+  .tableHead {
+    font-size: 1em !important;
+  }
+  .tableButtonFont {
+    font-size: 0.8em !important;
+  }
+  .tablePrice {
+    font-size: 0.8em;
+  }
+  .filtro {
+    flex-direction: column;
+  }
+  .filtroLabel {
+    margin-left: 4rem;
+    margin-bottom: 1rem;
+  }
+  .filtroInput {
+    margin-left: 4rem;
+    margin-bottom: 2rem;
   }
 }
 @media (max-width: 375px) {
@@ -471,6 +524,30 @@ footer {
   }
   .h1Logo {
     width: 80px !important;
+  }
+  .table {
+    margin-bottom: 0;
+  }
+  .tableImg {
+    width: 80px;
+  }
+  .tableText {
+    font-size: 0.75em !important;
+  }
+  .tableHead {
+    font-size: 0.8em !important;
+  }
+  .tableButtons {
+    align-items: center;
+    flex-direction: column;
+  }
+  .tableButtonFont {
+    margin: 0.4rem 0 0 0;
+    font-size: 1em !important;
+  }
+  .tablePrice {
+    margin: 0.4rem 0 0 0;
+    font-size: 1em;
   }
 }
 @media (max-width: 320px) {

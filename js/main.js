@@ -1,6 +1,9 @@
 const carritoTabla = document.querySelector("#tablaCarrito tbody")
 const vaciarCarrito = document.querySelector("#vaciar-carrito")
+const completarCompra = document.querySelector("#completar-compra")
 const carritoEntero = document.querySelector(".carritoDeCompras")
+const totalPrecio = document.querySelector("#precioTotal")
+const datosHarry = document.querySelector("#datosHarryPotter")
 let carrito = []
 
 function saveStorage() {
@@ -14,19 +17,31 @@ function displayCarritoHTML() {
         fila.innerHTML = `
         <td class="text-center borderSimple" ><img src="${producto.imagen}" class=" tableImg" width="100" /></td>
         <td class="text-center fontSizeVariable py-5 borderSimple tableText" > ${producto.nombre}</td>
-        <td class="text-center fontSizeVariable py-5 borderSimple tableText" > ${producto.precio}</td>
+        <td class="text-center fontSizeVariable py-5 borderSimple tableText" >Precio: $${producto.precio}</td>
         <td class="borderSimple text-center py-5">
             <a href="#" class="borrarProducto fs-3 tableText" data-id="${producto.id}">🗑</a>
         </td>
         `
-        if (carritoTabla){
+        if (carritoTabla) {
             carritoTabla.appendChild(fila)
-        }else{
+        } else {
 
-        }        
+        }
     })
+    actualizarPrecioTotal()
     saveStorage()
 }
+function actualizarPrecioTotal() {
+    if (totalPrecio) {
+        let precioInicial = 0;
+
+        carrito.forEach(producto => {
+            precioInicial += parseFloat(producto.precio);
+        })
+        totalPrecio.textContent = `Precio Total : $${precioInicial} `
+    }
+}
+
 
 function eliminarProducto(evt) {
     evt.preventDefault();
@@ -43,16 +58,15 @@ function limpiarCarrito() {
         carritoTabla.removeChild(carritoTabla.firstChild)
     }
     carrito = []
+    actualizarPrecioTotal()
     saveStorage()
 }
 
 function borrarViejos() {
-    if(carritoTabla){
+    if (carritoTabla) {
         while (carritoTabla.firstChild) {
             carritoTabla.removeChild(carritoTabla.firstChild)
         }
-    } else{
-
     }
 }
 
@@ -126,21 +140,89 @@ document.addEventListener('DOMContentLoaded', function () {
             // console.log("Producto añadido al carrito:", producto);
         }
     }
-    if(vaciarCarrito){
-        vaciarCarrito.addEventListener("click", limpiarCarrito)
-    }else{
-
+    if (vaciarCarrito) {
+        vaciarCarrito.addEventListener("click", () => {
+            Swal.fire({
+                title: "Desea vaciar el carrito de compras?",
+                icon: "question",
+                iconColor: "gray",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                cancelButtonText: "Cancelar",
+                confirmButtonText: "Si, vaciar"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire({
+                        title: "Su carrito ha sido vaciado!",
+                        confirmButtonText: "Okay",
+                        icon: "success"
+                    });
+                    limpiarCarrito()
+                }
+            });
+        })
     }
-    if(carritoEntero){
+    if (carritoEntero) {
         carritoEntero.addEventListener("click", eliminarProducto)
-    }else{
-
     }
-    
-    
+    if (completarCompra) {
+        completarCompra.addEventListener("click", () => {
+            Swal.fire({
+                title: "Desea completar su compra?",
+                icon: "question",
+                iconColor: "gray",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                cancelButtonText: "Cancelar",
+                confirmButtonText: "¡Completar!"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire({
+                        title: "Compra realizada!",
+                        text: "Su compra ha sido completada con exito :D",
+                        confirmButtonText: "¡Genial!",
+                        icon: "success"
+                    });
+                }
+            });
+        })
+    }
+
     carrito = JSON.parse(localStorage.getItem('cart')) || [];
 
     displayCarritoHTML()
+    const url = "https://harry-potter-api.onrender.com/info"
+
+    fetch(url)
+        .then((res) => res.json())
+        .then((data) => {
+            const autora = data[0].contenido
+            const titulo = data[1].contenido
+            const antagonista = data[2].contenido
+            const varitaHarry = data[3].contenido
+            const antagonistaNombre= data[5].contenido
+            const casas = data[6].contenido
+            const varitaVoldemort = data[7].contenido
+
+            datosHarry.innerHTML = `
+            <ul>
+            <li class="fs-4 listaDatos mb-4">La autora del libro se llama <strong>${autora}</strong>.</li>
+            <li class="fs-4 listaDatos mb-4">El antagonista de la serie de libros y peliculas ${titulo} es <strong>${antagonista}</strong>. ${antagonistaNombre}.</li>
+            <li class="fs-4 listaDatos mb-4">${varitaHarry}</li>
+            <li class="fs-4 listaDatos mb-4">${varitaVoldemort}</li>
+            <li class="fs-4 listaDatos mb-4">La varita que <strong>${antagonista}</strong> posee en la ultima entrega de la serie de peliculas, apodada "La varita de sauco" es una reliquia de la muerte y es también la varita del famoso mago y ex-director de Hogwarts Albus Dombuldore.</li>
+            <li class="fs-4 listaDatos mb-4">${casas} Cada una de estas tiene a su fundador, <strong>Gryffindor</strong>, fundada por Godric Gryffindor; <strong>Hufflepuff</strong>, fundada por Helga Hufflepuff; <strong>Ravenclaw</strong>, fundada por Rowena Ravenclaw y <strong>Slytherin</strong>, fundada por Salazar Slytherin.</li>
+            <li class="fs-4 listaDatos mb-4">En un inicio el protagonista, <strong>${titulo}</strong>, iba a ser seleccionado por el Sombrero Seleccionador, para la casa Slytherin, sin embargo al ver la preocupacion de ${titulo} lo terminó enviando a Gryffindor.</li>
+            </ul>
+            
+            
+            `
+            // La varita de ${antagonista} era identica a la de ${titulo} es por eso que no podian matarse entre sí.
+            console.log(data)
+        })
+        .catch((e) => console.log(e))
 
 });
 
